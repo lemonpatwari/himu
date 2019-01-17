@@ -33,12 +33,13 @@
                             @endif
 
                             <div class="table-responsive">
-                                <table class="table table-bordered table-hover">
+                                <table class="table table-bordered">
                                     <thead>
                                         <tr>
                                             <th>#</th>
                                             <th>Name</th>
                                             <th>Email</th>
+                                            <th>Department</th>
                                             <th>Description</th>
                                             <th>Status</th>
                                             <th>Action</th>
@@ -51,6 +52,7 @@
                                         <td>{{ $sl++ }}</td>
                                         <td>{{ $value->name }}</td>
                                         <td>{{ $value->email }}</td>
+                                        <td>{{ $value->department->department_name }}</td>
                                         <td>{{ $value->description }}</td>
                                         {{--<td>{{ $value->active ==1 ? 'Active' : 'In Active' }}</td>--}}
                                         <td>
@@ -62,11 +64,16 @@
                                         </td>
 
                                         <td>
-                                            @if($value->active == 1)
-                                                <a href="{{ route('deactive-action',$value) }}" class="btn btn-danger btn-xs">Deactivate</a>
-                                            @else($value->active != 1)
-                                                <a href="{{ route('active-action',$value) }}" class="btn btn-warning btn-xs">Active</a>
-                                            @endif
+                                            <div class="btn-group">
+                                                @if($value->active == 1)
+                                                    <a href="{{ route('deactive-action',$value) }}" class="btn btn-danger btn-xs">Deactivate</a>
+                                                @else($value->active != 1)
+                                                    <a href="{{ route('active-action',$value) }}" class="btn btn-warning btn-xs">Active</a>
+                                                @endif
+
+                                                <a href="{{ route('lemon.edit',$value) }}" class="btn btn-primary btn-xs">Edit</a>
+                                            </div>
+
                                         </td>
                                     </tr>
                                         @endforeach

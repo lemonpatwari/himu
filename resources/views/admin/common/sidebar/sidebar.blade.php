@@ -45,6 +45,7 @@
                             <li><a href="{{route('department.index')}}">Department</a></li>
                             <li><a href="{{ route('designation.index') }}">Designation</a></li>
                             <li><a href="{{ route('lemon.index') }}">Lemon</a></li>
+                            <li><a href="{{ route('lemon.index') }}">Employee</a></li>
                         </ul>
                     </li>
                     <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> About</a></li>

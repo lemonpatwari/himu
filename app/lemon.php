@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class lemon extends Model
 {
-    protected  $fillable =['name','email','description'];
+//    protected  $fillable =['name','email','department_id0','description'];
+
+    public function department(){
+        return $this->belongsTo('App\Department');
+    }
+
 }

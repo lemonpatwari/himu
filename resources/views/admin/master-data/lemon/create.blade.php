@@ -46,16 +46,29 @@
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" id="name" class="form-control input-sm  {{ $errors->has('name') ? 'is-danger' : '' }}" name="name" required value="{{ old('name') }}">
+                                        <input type="text" id="name" class="form-control input-sm  {{ $errors->has('name') ? 'is-danger' : '' }}" name="name"  value="{{ old('name') }}" required>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4">
                                     <div class="form-group">
                                         <label for="Email">Email</label>
-                                        <input type="email" id="Email" class="form-control input-sm {{ $errors->has('email') ? 'is-danger' : '' }}"  name="email" required value="{{ old('email') }}">
+                                        <input type="email" id="Email" class="form-control input-sm {{ $errors->has('email') ? 'is-danger' : '' }}"  name="email"  value="{{ old('email') }}" required>
                                     </div>
                                 </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4">
+                                    <div class="form-group">
+                                        <label for="departmentId">Department</label>
+                                        <select name="department_id" id="departmentId" class="form-control {{ $errors->has('department_id') ? 'is-danger' : '' }}" required>
+                                            <option value="" disabled selected hidden>Select One</option>
+                                            @foreach($departments as $department)
+                                                <option value="{{ $department->id }}">{{ $department->department_name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4">
                                     <div class="form-group">
                                         <label for="Description">Description</label>
